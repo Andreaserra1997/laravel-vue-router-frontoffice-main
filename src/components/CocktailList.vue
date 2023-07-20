@@ -35,15 +35,11 @@ export default {
 
 <template>
   <form>
-    <h2>Filtra le Categorie</h2>
-
-    <label for="categories">Categorie</label>
+    <label for="categories">
+      <h2>Filtra i cocktail per categoria:</h2>
+    </label>
     <select class="form-select" id="categories">
-      <option
-        v-for="category in arrCategories"
-        :key="category.id"
-        :value="category.id"
-      >
+      <option v-for="category in arrCategories" :key="category.id" :value="category.id">
         {{ category.strCategory }}
       </option>
     </select>
