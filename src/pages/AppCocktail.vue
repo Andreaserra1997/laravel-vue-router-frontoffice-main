@@ -1,5 +1,15 @@
-<script></script>
+<script>
+import CocktailList from "../components/CocktailList.vue";
 
-<template></template>
+export default {
+  components: {
+    CocktailList,
+  },
+};
+</script>
+
+<template>
+  <CocktailList />
+</template>
 
 <style lang="scss" scoped></style>
