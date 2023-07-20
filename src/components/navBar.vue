@@ -55,7 +55,7 @@ export default {
         </ul>
 
         <div>
-          <img src="" alt="" />
+          <img src="../assets/images/logoNav.jpg" alt="" />
         </div>
       </div>
     </div>
@@ -65,5 +65,12 @@ export default {
 <style lang="scss" scoped>
 nav {
   height: 100px;
+}
+
+img {
+  max-width: 80px;
+  border-radius: 80px;
+  object-fit: cover;
+  object-position: center;
 }
 </style>
