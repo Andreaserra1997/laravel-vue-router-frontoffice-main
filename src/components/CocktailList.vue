@@ -7,26 +7,22 @@ export default {
   data() {
     return {
       store,
+      arrCocktails: [],
+      arrCategories: [],
     };
   },
   components: {
     CocktailCard,
   },
-  data() {
-    return {
-      arrCocktails: [],
-      arrCategories: [],
-    };
-  },
   methods: {
     getCocktails() {
-      axios.get("http://localhost:8000/api/cocktails").then((response) => {
+      axios.get(this.store.baseUrl + "api/cocktails").then((response) => {
         this.arrCocktails = response.data.results;
       });
     },
     getCategories() {
-      axios.get("http://localhost:8000/api/categories").then((response) => {
-        this.arrCategories = response.data.results;
+      axios.get(this.store.baseUrl + "api/category").then((response) => {
+        this.arrCategories = response.data;
       });
     },
   },
@@ -44,7 +40,7 @@ export default {
     <label for="categories">Categorie</label>
     <select class="form-select" id="categories">
       <option
-        v-for="category in arrCocktails"
+        v-for="category in arrCategories"
         :key="category.id"
         :value="category.id"
       >

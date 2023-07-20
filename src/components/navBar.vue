@@ -57,27 +57,6 @@ export default {
         <div>
           <img src="" alt="" />
         </div>
-
-        <form
-          class="d-flex"
-          role="search"
-          @submit.prevent="
-            $router.push({
-              name: 'cocktails.index',
-              query: { q: searchString },
-            })
-          "
-        >
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            name="q"
-            v-model="searchString"
-          />
-          <button class="btn btn-light" type="submit">SEARCH</button>
-        </form>
       </div>
     </div>
   </nav>
