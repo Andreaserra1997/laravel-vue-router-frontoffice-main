@@ -9,9 +9,8 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-dark">
+  <nav class="navbar navbar-expand-lg bg-dark mb-5">
     <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="#"></a> -->
       <button
         class="navbar-toggler"
         type="button"
