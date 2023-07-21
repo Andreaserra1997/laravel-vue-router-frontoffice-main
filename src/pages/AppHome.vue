@@ -18,39 +18,15 @@ export default {
 </script>
 
 <template>
-  <!-- <div class="row row-cols-3 g-0">
-    <div class="col" v-for="cocktail in arrCocktails" :key="cocktail.id">
-      <router-link
-        class="d-block w-100 h-100"
-        :to="{ name: 'cocktails.show', params: { cocktail: cocktail.id } }"
-      >
-        <img
-          class="w-100 h-100"
-          :src="cocktail.strDrinkThumb"
-          :alt="cocktail.name"
-        />
-      </router-link>
-    </div>
-  </div> -->
-
-
-
   <!-- Jumbotron -->
-  <div class="container-fluid p-5 text-center bg-image rounded-3" style="
-    background-image: url('https://cutewallpaper.org/21x/efzi79fd6/Celebrate-diversity-Wallpaper-and-Background-Image-.jpg');
-    height: 80vh;
-  ">
-    <div class="mask bg-dark">
+  <div class="container-fluid jumbotron text-center bg-image rounded-3 p-3 mt-4">
+    <div class="mask bg-dark m-3">
       <div class="d-flex justify-content-center align-items-center">
-        <div class="text-white m-5">
+        <div class="text-white m-2">
           <h1 class="mb-3">The Cocktail Bar</h1>
           <h4 class="mb-3">Find-out our drinks!</h4>
           <button class="button type1">
             <router-link :to="{ name: 'cocktails.index' }" class="nav-link text-dark">COCKTAILS</router-link> </button>
-
-
-
-
         </div>
       </div>
     </div>
@@ -59,17 +35,11 @@ export default {
 </template>
 
 <style scoped>
-/* .row {
-  height: 70vh;
-  padding-top: 2rem;
+.jumbotron {
+  height: 80vh;
+  background-image: url('https://cutewallpaper.org/21x/efzi79fd6/Celebrate-diversity-Wallpaper-and-Background-Image-.jpg');
+  background-position: 0% 20%;
 }
-
-.col {
-  height: calc(100% / 3);
-} */
-/* img {
-  object-fit: cover;
-} */
 
 .button {
   height: 50px;
@@ -115,3 +85,10 @@ export default {
   transform: scale(100) translateX(2px);
 }
 </style>
+
+
+
+
+<!-- style="
+    background-image: url('https://cutewallpaper.org/21x/efzi79fd6/Celebrate-diversity-Wallpaper-and-Background-Image-.jpg');
+    height: 90vh; -->
