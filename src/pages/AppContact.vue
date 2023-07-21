@@ -1,50 +1,119 @@
 <script>
-export default {};
+import { store } from "../store";
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      store,
+      name: "",
+      email: "",
+      message: "",
+      newsletter: true,
+      showSuccess: false,
+      isSending: false,
+      hasError: false,
+    };
+  },
+  methods: {
+    sendLead() {
+      this.isSending = true;
+      axios
+        .post(this.store.baseUrl + "api/leads", {
+          name: this.name,
+          email: this.email,
+          message: this.message,
+          newsletter: this.newsletter,
+        })
+        .then((response) => {
+          this.isSending = false;
+
+          if (response.data.success) {
+            this.showSuccess = true;
+            this.resetForm();
+          } else {
+            this.hasError = true;
+          }
+        });
+    },
+    resetForm() {
+      this.name = "";
+      this.email = "";
+      this.message = "";
+      this.newsletter = "";
+    },
+  },
+};
 </script>
+
 <template>
-  <h2>Contact us</h2>
+  <h1>Contattaci</h1>
 
-  <form>
-    <div class="mb-3" novalidate>
-      <label for="name" class="form-label">Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="name"
-        aria-describedby="emailHelp"
-      />
+  <div
+    v-if="showSuccess"
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    Messaggio inviato con successo
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div
+    v-if="hasError"
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    Errore invio messaggio
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <form @submit.prevent="sendLead" novalidate>
+    <div class="mb-3">
+      <label for="name" class="form-label">Nome</label>
+      <input type="email" class="form-control" id="name" v-model="name" />
     </div>
 
     <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        aria-describedby="emailHelp"
-      />
+      <label for="email" class="form-label">Indirizzo e-mail</label>
+      <input type="email" class="form-control" id="email" v-model="email" />
     </div>
 
     <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label"
-        >Message</label
-      >
+      <label for="message" class="form-label">Messaggio</label>
       <textarea
         class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
+        id="message"
+        rows="5"
+        v-model="message"
       ></textarea>
     </div>
 
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-      <label class="form-check-label" for="exampleCheck1"
-        >subscribe to the NewsLetters</label
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="newsletter"
+        v-model="newsletter"
+      />
+      <label class="form-check-label" for="newsletter"
+        >Iscriviti alla newsletter</label
       >
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" :disabled="isSending">
+      Invia
+    </button>
   </form>
 </template>
 
-<style lang="scss" scoped></style>
+<style></style>
