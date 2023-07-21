@@ -16,7 +16,7 @@ export default {
   },
   created() {
     axios
-      .get("http://localhost:8000/api/cocktails/" + this.$route.params.cocktail)
+      .get(this.store.baseUrl + "api/cocktails/" + this.$route.params.cocktail)
       .then((response) => {
         if (response.data.success) {
           this.cocktail = response.data.results;

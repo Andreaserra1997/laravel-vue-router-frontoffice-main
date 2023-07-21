@@ -10,7 +10,7 @@ export default {
     };
   },
   created() {
-    axios.get("http://localhost:8000/api/cocktails/random").then((response) => {
+    axios.get(this.store.baseUrl + "api/cocktails/random").then((response) => {
       this.arrCocktails = response.data.results;
     });
   },
