@@ -31,9 +31,9 @@ export default {
 
     <div class="info border border-dark">
       <h5 class="card-title">{{ cocktail.strDrink }}</h5>
-      <deets>
+      <span class="deets">
         {{ cocktail.strCategory }}
-      </deets>
+      </span>
     </div>
 
     <router-link :to="{ name: 'cocktails.show', params: { cocktail: cocktail.id } }"
