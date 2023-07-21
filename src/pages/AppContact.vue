@@ -86,6 +86,8 @@ export default {
     <div class="mb-3">
       <label for="email" class="form-label">Indirizzo e-mail</label>
       <input type="email" class="form-control" id="email" v-model="email" />
+      <label for="email" class="form-label">Indirizzo e-mail</label>
+      <input type="email" class="form-control" id="email" v-model="email" />
     </div>
 
     <div class="mb-3">
@@ -116,4 +118,4 @@ export default {
   </form>
 </template>
 
-<style></style>
+<style lang="scss" scoped></style>
